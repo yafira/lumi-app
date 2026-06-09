@@ -1,0 +1,205 @@
+.alert-screen {
+  background: var(--cream);
+  padding: 54px 0 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.alert-screen__inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 24px 100px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  gap: 16px;
+}
+.alert-screen__inner::-webkit-scrollbar { display: none; }
+
+.alert-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #FFF3E0;
+  border: 1px solid #FFB74D;
+  border-radius: 100px;
+  padding: 6px 14px;
+  font-family: var(--fm);
+  font-size: 10px;
+  color: #BF5500;
+  width: fit-content;
+}
+
+.alert-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #BF5500;
+  animation: blink 1.5s ease-in-out infinite;
+}
+
+.alert-title {
+  font-family: var(--fd);
+  font-size: 38px;
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--black);
+}
+.alert-title em { font-style: italic; color: var(--lav-deep); }
+
+.alert-desc {
+  font-family: var(--fm);
+  font-size: 12px;
+  color: var(--grey);
+  line-height: 1.6;
+}
+
+.alert-timeline {
+  background: var(--cream-card);
+  border: 0.5px solid var(--border);
+  border-radius: 18px;
+  padding: 18px;
+}
+
+.timeline-label {
+  font-family: var(--fm);
+  font-size: 9px;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 14px;
+}
+
+.timeline-bar-bg {
+  height: 6px;
+  background: var(--cream-deep);
+  border-radius: 100px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.timeline-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--lav-mid), var(--lav-deep));
+  border-radius: 100px;
+}
+
+.timeline-markers {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--fm);
+  font-size: 9px;
+  color: var(--grey-light);
+}
+
+.timeline-now { color: var(--lav-deep); }
+
+/* PROGRESS */
+.action-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.action-progress__label {
+  font-family: var(--fm);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey-light);
+  text-align: right;
+}
+
+.action-progress__bar-bg {
+  height: 3px;
+  background: var(--cream-deep);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.action-progress__bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--lav-mid), var(--lav-deep));
+  border-radius: 100px;
+  transition: width 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+
+.action-progress__bar-fill--full {
+  animation: barPulse 0.6s ease forwards;
+}
+
+/* ACTION ITEMS */
+.action-list { display: flex; flex-direction: column; gap: 8px; }
+
+.action-item {
+  background: var(--cream-card);
+  border: 0.5px solid var(--border);
+  border-radius: 16px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.2s, transform 0.18s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+.action-item:hover,
+.action-item--done {
+  background: var(--lav);
+  border-color: var(--lav-deep);
+}
+
+.action-item__icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: var(--cream-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  flex-shrink: 0;
+}
+
+.action-item--done .action-item__icon {
+  background: var(--lav-deep);
+  color: white;
+}
+
+.action-item__text h4 {
+  font-family: var(--fm);
+  font-size: 12px;
+  color: var(--black);
+}
+
+.action-item__text p {
+  font-family: var(--fm);
+  font-size: 10px;
+  color: var(--grey);
+}
+
+.action-item__confirm {
+  font-family: var(--fm);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--lav-deep);
+  display: block;
+  margin-top: 2px;
+  animation: fadeUp 0.3s ease forwards;
+}
+
+.action-item__check {
+  margin-left: auto;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid var(--grey-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  flex-shrink: 0;
+}
+
+.action-item--done .action-item__check {
+  background: var(--lav-deep);
+  border-color: var(--lav-deep);
+  color: white;
+}

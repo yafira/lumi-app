@@ -1,0 +1,64 @@
+.orb {
+  position: relative;
+  width: var(--orb-size, 120px);
+  height: var(--orb-size, 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orb__core {
+  width: 52%;
+  height: 52%;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+  transition: background 600ms ease, box-shadow 600ms ease;
+}
+
+.orb__ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid;
+  opacity: 0;
+}
+.orb__ring--1 { width: 70%; height: 70%; }
+.orb__ring--2 { width: 90%; height: 90%; }
+
+/* low — calm lavender */
+.orb--low .orb__core {
+  background: radial-gradient(circle at 35% 35%, #ddd4f0, #c9b8e8);
+  box-shadow: 0 0 24px rgba(201,184,232,0.4);
+}
+.orb--low .orb__ring { border-color: var(--lav-mid); }
+
+/* medium */
+.orb--medium .orb__core {
+  background: radial-gradient(circle at 35% 35%, var(--lav-mid), var(--lav-deep));
+  box-shadow: 0 0 36px rgba(155,127,212,0.5);
+}
+.orb--medium .orb__ring { border-color: var(--lav-deep); }
+
+/* high — warning amber */
+.orb--high .orb__core {
+  background: radial-gradient(circle at 35% 35%, #f5c6a0, #e8935e);
+  box-shadow: 0 0 40px rgba(232,147,94,0.5);
+}
+.orb--high .orb__ring { border-color: #e8935e; }
+
+/* pulse animations */
+.orb--pulse .orb__ring--1 { animation: orbPulse 2.8s ease-out infinite; }
+.orb--pulse .orb__ring--2 { animation: orbPulse 2.8s ease-out 1s infinite; }
+
+@keyframes orbPulse {
+  0%   { opacity: 0.5; transform: scale(0.9); }
+  60%  { opacity: 0;   transform: scale(1.15); }
+  100% { opacity: 0;   transform: scale(1.15); }
+}
+
+.orb--pulse .orb__core { animation: orbBreathe 3.6s ease-in-out infinite; }
+
+@keyframes orbBreathe {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.06); }
+}

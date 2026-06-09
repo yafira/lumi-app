@@ -1,0 +1,37 @@
+.bottom-nav {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 83px;
+  background: var(--cream-card);
+  border-top: 0.5px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  padding-top: 10px;
+  z-index: 50;
+  transition: background 0.4s;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 14px;
+  color: var(--grey-light);
+  transition: color 0.2s;
+}
+
+.nav-item.active,
+.nav-item:hover {
+  color: var(--lav-deep);
+}
+
+.nav-label {
+  font-family: var(--fm);
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
