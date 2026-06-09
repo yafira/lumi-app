@@ -1,0 +1,148 @@
+@font-face {
+  font-family: "Departure Mono";
+  src: url("https://cdn.jsdelivr.net/gh/rektdeckard/departure-mono@main/fonts/DepartureMono-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cream: #fdf8f0;
+  --cream-card: #fffcf7;
+  --cream-deep: #f5efe3;
+  --lav: #ede4ff;
+  --lav-mid: #d4bcff;
+  --lav-deep: #9b7fd4;
+  --blush: #ffe8f0;
+  --mint: #e8faf4;
+  --black: #0d0d0d;
+  --grey: #8a8480;
+  --grey-light: #c4bfb8;
+  --border: rgba(13, 13, 13, 0.08);
+  --fd: "Fraunces", serif;
+  --fm: "Departure Mono", monospace;
+}
+
+:root.dark {
+  --cream: #0e0c0a;
+  --cream-card: #161410;
+  --cream-deep: #1e1b17;
+  --lav: #1e1830;
+  --lav-mid: #6b4fa0;
+  --lav-deep: #c4a0ff;
+  --blush: #1e1018;
+  --mint: #0e1e18;
+  --black: #f5f0e8;
+  --grey: #7a7470;
+  --grey-light: #3a3630;
+  --border: rgba(245, 240, 232, 0.08);
+}
+
+body {
+  background: #e8e4dc;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fm);
+  padding: 40px 20px;
+  transition: background 0.4s;
+}
+
+body.dark {
+  background: #1a1714;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float1 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-10px, -15px);
+  }
+}
+
+@keyframes float2 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(15px, -10px);
+  }
+}
+
+@keyframes float3 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-8px, 12px);
+  }
+}
+
+@keyframes pulseOrb {
+  0%,
+  100% {
+    box-shadow: 0 0 24px rgba(155, 127, 212, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 36px rgba(155, 127, 212, 0.7);
+    transform: scale(1.04);
+  }
+}
+
+@keyframes ringPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes barPulse {
+  0% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0.4;
+    transform: scaleY(2);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
