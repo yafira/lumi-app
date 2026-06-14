@@ -49,3 +49,29 @@ export interface TriggerRow {
   name: string;
   pct: number;
 }
+
+export type SymptomCategoryId = "hormonal" | "lifestyle" | "aura" | "attack";
+
+export interface Symptom {
+  id: string;
+  label: string;
+  icon: string;
+}
+
+export interface SymptomCategory {
+  id: SymptomCategoryId;
+  title: string;
+  symptoms: Symptom[];
+}
+
+export interface QuickLogItem {
+  id: string;
+  label: string;
+  icon: string;
+}
+
+export interface CycleCorrelation {
+  headline: string;
+  detail: string;
+  dayRange: string;
+}
