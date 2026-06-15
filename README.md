@@ -74,6 +74,6 @@ This prototype is one piece of the Lumi project — a speculative wearable syste
 
 ## About
 
-A project by [Yafira Martinez](https://yafira.xyz)
+A design engineering project by [Yafira Martinez](https://yafira.xyz)
 
 [Portfolio](https://yafira.xyz) · [Contact](mailto:yafira@proton.me)
