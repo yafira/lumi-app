@@ -32,20 +32,20 @@ const DEVICES: {
     id: "aura",
     name: "Aura",
     desc: "Hair clip — clips where it hurts",
-    image: "/src/devices/aura.png",
+    image: "/devices/aura.png",
     hero: true,
   },
   {
     id: "halo",
     name: "Halo",
     desc: "Headband — wraps around",
-    image: "src/devices/halo.png",
+    image: "/devices/halo.png",
   },
   {
     id: "nimbus",
     name: "Nimbus",
     desc: "Patch — sticks anywhere",
-    image: "src/devices/nimbus.png",
+    image: "/devices/nimbus.png",
   },
 ];
 
