@@ -1,73 +1,79 @@
-# React + TypeScript + Vite
+# Lumi — Companion App Prototype
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Your body knows before you do.**
 
-Currently, two official plugins are available:
+[Live Prototype](https://lumi-wearable.vercel.app) · [Case Study](https://lumi-case-study.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+![Lumi app demo](./src/assets/demo.gif)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## What This Is
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+A fully interactive mobile UI prototype for Lumi — a speculative wearable biosensor designed to detect the migraine prodrome window before an attack begins. This repo is the companion app: the screen you'd check when your Aura clip picks up a signal shift.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+No real hardware connection. All biosensor data is simulated to demonstrate the complete interaction model.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Screens
+
+| Screen                  | What it does                                                                                                   |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------- |
+| **Onboarding**          | Device pairing flow, baseline calibration                                                                      |
+| **Dashboard**           | Live signal orb (calm / medium / warning), vitals at a glance — HRV, temp, stress, sleep, hydration, cycle day |
+| **Early Warning Alert** | Triggered when risk rises — step-by-step action checklist with micro-interactions and a progress bar           |
+| **Patterns Calendar**   | Tap any two days to compare biosensor data side by side                                                        |
+| **Symptom Log**         | Categorized entry (hormonal, lifestyle, aura, attack) — tag auto-derived from symptoms selected                |
+
+---
+
+## Tech Stack
+
+- **React + TypeScript** — component architecture and type safety
+- **Vite** — build tooling
+- **Vercel** — deployment
+- **Vanilla CSS** — no UI framework; all styles hand-rolled
+- **Fraunces** — serif display typeface
+- **Departure Mono** — monospace for data readouts
+- **Lucide Icons** — iconography
+- Simulated biosensor data via local state
+
+---
+
+## Running Locally
+
+```bash
+git clone https://github.com/yafira/lumi-app
+cd lumi-app
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open [http://localhost:5173](http://localhost:5173)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Design Notes
+
+This app was designed in the browser, not before it. No Figma handoff — every screen was built, viewed, adjusted, and rebuilt in code. A few decisions worth noting:
+
+- **The signal orb** went through dozens of iterations for breathing animation, color states, and glow intensity. It needed to feel alive without being distracting — something only apparent when watching it pulse in the actual interface.
+- **The alert flow** was designed through interaction: scale animations, confirmation labels, and the progress bar all emerged from asking what each tap needed to feel like before the success state made sense.
+- **The symptom log** originally had two overlapping inputs — a tag selector and a symptom picker. Watching it in the interface made the redundancy obvious; the tag is now auto-derived from symptoms selected, cutting the interaction in half.
+
+---
+
+## Part of
+
+This prototype is one piece of the Lumi project — a speculative wearable system including the Aura hair clip, Halo headband, and Nimbus adhesive patch. All hardware is a design concept; see the [case study](https://lumi-case-study.vercel.app) for the full picture.
+
+---
+
+## About
+
+A project by [Yafira Martinez](https://yafira.xyz)
+
+[Portfolio](https://yafira.xyz) · [Contact](mailto:yafira@proton.me)
