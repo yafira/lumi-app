@@ -52,7 +52,10 @@
   margin-bottom: 6px;
 }
 
-.onboard__q em { font-style: italic; color: var(--lav-deep); }
+.onboard__q em {
+  font-style: italic;
+  color: var(--lav-deep);
+}
 
 .onboard__sub {
   font-family: var(--fm);
@@ -88,18 +91,33 @@
   background: var(--lav);
 }
 
-.device-icon {
-  width: 44px; height: 44px;
+.device-image {
+  width: 56px;
+  height: 56px;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  overflow: hidden;
+  padding: 8px;
 }
 
-.device-icon--aura   { background: var(--lav); }
-.device-icon--halo   { background: var(--blush); }
-.device-icon--nimbus { background: var(--mint); }
+.device-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.device-image--aura {
+  background: var(--lav);
+}
+.device-image--halo {
+  background: var(--blush);
+}
+.device-image--nimbus {
+  background: var(--mint);
+}
 
 .device-info h3 {
   font-family: var(--fm);
@@ -155,10 +173,15 @@
 }
 
 .ready-orb {
-  width: 80px; height: 80px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, var(--lav-mid), var(--lav-deep));
-  box-shadow: 0 0 40px rgba(155,127,212,0.35);
+  background: radial-gradient(
+    circle at 35% 35%,
+    var(--lav-mid),
+    var(--lav-deep)
+  );
+  box-shadow: 0 0 40px rgba(155, 127, 212, 0.35);
   animation: pulseOrb 3s ease-in-out infinite;
   flex-shrink: 0;
 }

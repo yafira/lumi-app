@@ -21,15 +21,32 @@ const DEFAULT_SELECTED_TRIGGERS = new Set([
   "Dehydration",
 ]);
 
-const DEVICES: { id: Device; name: string; desc: string; hero?: boolean }[] = [
+const DEVICES: {
+  id: Device;
+  name: string;
+  desc: string;
+  image: string;
+  hero?: boolean;
+}[] = [
   {
     id: "aura",
     name: "Aura",
     desc: "Hair clip — clips where it hurts",
+    image: "/src/devices/aura.png",
     hero: true,
   },
-  { id: "halo", name: "Halo", desc: "Headband — wraps around" },
-  { id: "nimbus", name: "Nimbus", desc: "Patch — sticks anywhere" },
+  {
+    id: "halo",
+    name: "Halo",
+    desc: "Headband — wraps around",
+    image: "src/devices/halo.png",
+  },
+  {
+    id: "nimbus",
+    name: "Nimbus",
+    desc: "Patch — sticks anywhere",
+    image: "src/devices/nimbus.png",
+  },
 ];
 
 import { useState } from "react";
@@ -72,14 +89,14 @@ export default function Onboard() {
               Each device goes where your pain lives.
             </div>
             <div className="device-grid">
-              {DEVICES.map(({ id, name, desc, hero }) => (
+              {DEVICES.map(({ id, name, desc, image, hero }) => (
                 <div
                   key={id}
                   className={`device-card ${selectedDevice === id ? "device-card--selected" : ""}`}
                   onClick={() => setDevice(id)}
                 >
-                  <div className={`device-icon device-icon--${id}`}>
-                    <DeviceIcon id={id} />
+                  <div className={`device-image device-image--${id}`}>
+                    <img src={image} alt={`${name} device`} />
                   </div>
                   <div className="device-info">
                     <h3>{name}</h3>
@@ -144,94 +161,5 @@ export default function Onboard() {
         </button>
       </div>
     </div>
-  );
-}
-
-function DeviceIcon({ id }: { id: Device }) {
-  if (id === "aura")
-    return (
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-        <rect
-          x="3"
-          y="8"
-          width="16"
-          height="6"
-          rx="3"
-          stroke="var(--lav-deep)"
-          strokeWidth="1.5"
-        />
-        <path
-          d="M3 11 C3 13 5 14 7 14 C9 14 11 13 11 11"
-          stroke="var(--lav-deep)"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          fill="none"
-        />
-      </svg>
-    );
-  if (id === "halo")
-    return (
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-        <path
-          d="M4 11 A7 7 0 1 1 18 11"
-          stroke="#D45080"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          fill="none"
-        />
-        <circle cx="18" cy="11" r="1.5" fill="#D45080" />
-        <circle cx="4" cy="11" r="1.5" fill="#D45080" />
-      </svg>
-    );
-  return (
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-      <path
-        d="M11 4 C11 4 13 6.5 11 8 C9 6.5 11 4 11 4Z"
-        stroke="#2A9D7A"
-        strokeWidth="1.2"
-        strokeLinejoin="round"
-        fill="none"
-      />
-      <path
-        d="M11 4 C11 4 13 6.5 11 8 C9 6.5 11 4 11 4Z"
-        stroke="#2A9D7A"
-        strokeWidth="1.2"
-        strokeLinejoin="round"
-        fill="none"
-        transform="rotate(72 11 11)"
-      />
-      <path
-        d="M11 4 C11 4 13 6.5 11 8 C9 6.5 11 4 11 4Z"
-        stroke="#2A9D7A"
-        strokeWidth="1.2"
-        strokeLinejoin="round"
-        fill="none"
-        transform="rotate(144 11 11)"
-      />
-      <path
-        d="M11 4 C11 4 13 6.5 11 8 C9 6.5 11 4 11 4Z"
-        stroke="#2A9D7A"
-        strokeWidth="1.2"
-        strokeLinejoin="round"
-        fill="none"
-        transform="rotate(216 11 11)"
-      />
-      <path
-        d="M11 4 C11 4 13 6.5 11 8 C9 6.5 11 4 11 4Z"
-        stroke="#2A9D7A"
-        strokeWidth="1.2"
-        strokeLinejoin="round"
-        fill="none"
-        transform="rotate(288 11 11)"
-      />
-      <circle
-        cx="11"
-        cy="11"
-        r="1.5"
-        stroke="#2A9D7A"
-        strokeWidth="1.2"
-        fill="none"
-      />
-    </svg>
   );
 }
